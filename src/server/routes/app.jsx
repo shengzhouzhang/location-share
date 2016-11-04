@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
-export function indexPage(req, res) {
+export default function app(req, res) {
   const props = {};
   return res.render('index', {
     html: ReactDOMServer.renderToString(<div />),

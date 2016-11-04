@@ -3,7 +3,7 @@ import morgan from 'morgan';
 import compression from 'compression';
 import useHandlebars from './handlebars';
 import config from './config';
-import { indexPage } from './routes';
+import * as routes from './routes';
 import * as logger from './utils/log';
 
 const server = express();
@@ -13,7 +13,7 @@ server.use(morgan('short'));
 
 useHandlebars(server);
 
-server.use('/', indexPage);
+server.use('/', routes.app);
 
 server.listen(config.PORT, (err) => {
   if (err) { return logger.error(err); }
