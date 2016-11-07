@@ -1,3 +1,4 @@
+import path from 'path';
 import express from 'express';
 import morgan from 'morgan';
 import compression from 'compression';
@@ -13,6 +14,7 @@ server.use(morgan('short'));
 
 useHandlebars(server);
 
+server.use('/static', express.static(path.join(__dirname, '..', '..', 'public')));
 server.use('/', routes.app);
 
 server.listen(config.PORT, (err) => {
