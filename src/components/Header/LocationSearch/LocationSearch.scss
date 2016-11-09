@@ -1,0 +1,14 @@
+
+@import '../../../style/reset.scss';
+
+.location-search {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  border-bottom: 1px solid #ddd;
+  padding: 0 16px;
+}
+
+.location-search__input {
+  flex: 1 0 0;
+}

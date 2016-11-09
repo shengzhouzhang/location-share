@@ -14,7 +14,7 @@ module.exports = {
   ],
   module: {
     loaders: [
-      { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[local]___[hash:base64:5]') },
+      { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[local]___[hash:base64:5]', 'sass') },
       { test: /\.jsx?$/, loader: 'babel', exclude: /(node_modules|bower_components)/ },
     ],
   },

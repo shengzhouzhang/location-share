@@ -1,8 +1,10 @@
 import React from 'react';
 
-export default function LocationSearch(props) {
+export default function LocationSearch() {
   return (
-    <div className={props.className} />
+    <div styleName="location-search">
+      <input type="search" styleName="location-search__input" placeholder="Search Location" />
+    </div>
   );
 }
 

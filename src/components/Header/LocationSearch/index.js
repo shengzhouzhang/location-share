@@ -1,3 +1,5 @@
-import _LocationSearch from './LocationSearch';
+import withStyles from 'react-css-modules';
+import LocationSearch from './LocationSearch';
+import styles from './LocationSearch.scss';
 
-export default _LocationSearch;
+export default withStyles(LocationSearch, styles);
