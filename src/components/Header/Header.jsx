@@ -4,9 +4,9 @@ import Navigations from './Navigations';
 
 export default function Header() {
   return (
-    <div styleName="header">
+    <header styleName="header">
       <LocationSearch />
       <Navigations />
-    </div>
+    </header>
   );
 }

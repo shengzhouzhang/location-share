@@ -1,0 +1,18 @@
+
+.navigations {
+  display: flex;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 2px 2px #ccc;
+  padding: 2px;
+}
+
+.navigations__tab {
+  flex: 1 0 0;
+}
+
+.navigations__tab:not(:last-child) {
+  border-right: 1px solid #ddd;
+}
