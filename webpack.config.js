@@ -4,7 +4,8 @@ module.exports = {
   entry: './src/client/main.js',
   output: {
     path: './public/',
-    filename: 'main.js',
+    filename: '/main.js',
+    publicPath: 'http://localhost:8080/static/',
   },
   plugins: [
     new ExtractTextPlugin('main.css', {

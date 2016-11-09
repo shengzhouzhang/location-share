@@ -4,6 +4,7 @@
   "engines": "node 7.0.0",
   "scripts": {
     "dev": "./node_modules/nodemon/bin/nodemon.js --exec babel-node src/server/index.js",
+    "webpack-dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
     "eslint": "./node_modules/eslint/bin/eslint.js src/"
   },
   "main": "index.js",
@@ -39,6 +40,7 @@
     "winston": "^2.3.0"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "webpack-dev-server": "^1.16.2"
   }
 }
