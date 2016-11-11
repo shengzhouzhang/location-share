@@ -9,7 +9,3 @@ export default function Navigations() {
     </nav>
   );
 }
-
-Navigations.propTypes = {
-  className: React.PropTypes.string,
-};

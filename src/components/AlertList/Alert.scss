@@ -1,0 +1,43 @@
+
+.alert {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  padding: 10px 16px;
+}
+
+.alert:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
+
+.alert__info {
+  flex: 1 0 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.alert__location {
+  flex: 1 0 0;
+  line-height: 40px;
+  height: 40px;
+}
+
+.alert__recipient {
+  flex: 1 0 0;
+  line-height: 40px;
+  height: 40px;
+  text-align: right;
+}
+
+.alert__label {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
+  height: 40px;
+  text-transform: capitalize;
+}
+
+.alert__button {
+  line-height: 40px;
+  height: 40px;
+}

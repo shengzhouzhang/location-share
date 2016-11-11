@@ -7,7 +7,3 @@ export default function LocationSearch() {
     </div>
   );
 }
-
-LocationSearch.propTypes = {
-  className: React.PropTypes.string,
-};

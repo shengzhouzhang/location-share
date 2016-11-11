@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Alerts from '../components/Alerts';
+import AlertPage from '../components/AlertPage';
 
 const appContainer = document.querySelector('.app-container');
 
-ReactDOM.render(<Alerts />, appContainer);
+ReactDOM.render(<AlertPage />, appContainer);
