@@ -1,0 +1,9 @@
+
+@import '../../style/reset.scss';
+
+.page--map-page {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
