@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import Promise from 'bluebird';
+import { PositionType } from '../../PropTypes';
 
-function getCurrentPosition() {
-  const geolocation = window.navigator.geolocation;
-  return new Promise((resolve, reject) => {
-    if (!geolocation) { return reject(); }
-    return geolocation.getCurrentPosition(resolve);
-  });
+function getLocation(position) {
+  return Promise.resolve(position);
 }
 
 export default class Map extends Component {
-  componentDidMount() {
-    this.loadMap();
+  static propTypes = {
+    position: PropTypes.shape(PositionType).isRequired,
   }
-  loadMap() {
-    const container = this.map;
-    const map = new google.maps.Map(container, { zoom: 12 });
-    getCurrentPosition()
-      .then(({ coords }) => new google.maps.LatLng(coords.latitude, coords.longitude))
+  componentDidMount() {
+    this.loadMap(this.props.position);
+  }
+  loadMap = (position) => {
+    const map = new google.maps.Map(this.container, { zoom: 12 });
+    return getLocation(position)
+      .then(({ latitude, longitude }) => new google.maps.LatLng(latitude, longitude))
       .then(currentLocation => map.setCenter(currentLocation));
   }
   render() {
     return (
-      <div styleName="map" ref={(c) => { this.map = c; }} />
+      <div styleName="map" ref={(c) => { this.container = c; }} />
     );
   }
 }

@@ -14,6 +14,8 @@ server.use(morgan('short'));
 
 useHandlebars(server);
 
+server.use('/static/utils/', express.static(path.join(__dirname, '..', 'client', 'utils')));
+server.use('/static/workers/', express.static(path.join(__dirname, '..', 'client', 'workers')));
 server.use('/static', express.static(path.join(__dirname, '..', '..', 'public')));
 server.use('/', routes.app);
 

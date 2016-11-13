@@ -3,7 +3,8 @@
   "extends": "airbnb",
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "worker": true
   },
   "globals": {
     google: true
