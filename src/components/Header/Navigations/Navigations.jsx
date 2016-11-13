@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
-export default function Navigations() {
-  return (
-    <nav styleName="navigations">
-      <a styleName="navigations__tab">Alerts</a>
-      <a styleName="navigations__tab">Map</a>
-      <a styleName="navigations__tab">Account</a>
-    </nav>
-  );
+export default class Navigations extends Component {
+  static propTypes = {
+    onTabClick: PropTypes.func.isRequired,
+  };
+  toAlertPage = (event) => {
+    event.preventDefault();
+    this.props.onTabClick('alert-page');
+  }
+  toMapPage = (event) => {
+    event.preventDefault();
+    this.props.onTabClick('map-page');
+  }
+  render() {
+    return (
+      <nav styleName="navigations">
+        <button styleName="navigations__tab" onClick={this.toAlertPage}>Alerts</button>
+        <button styleName="navigations__tab" onClick={this.toMapPage}>Map</button>
+        <button styleName="navigations__tab">Account</button>
+      </nav>
+    );
+  }
 }

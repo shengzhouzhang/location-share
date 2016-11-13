@@ -15,11 +15,17 @@ class App extends Component {
   state = {
     pageName: this.props.pageName,
   };
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextState.pageName !== this.state.pageName;
+  }
+  tabClickHandler = (pageName) => {
+    this.setState({ pageName });
+  }
   render() {
     const { pageName } = this.state;
     return (
       <div styleName="app">
-        <Header />
+        <Header onTabClick={this.tabClickHandler} />
         { pageName === 'alert-page' ? <AlertPage /> : null }
         { pageName === 'map-page' ? <MapPage /> : null }
       </div>
