@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import withStyles from 'react-css-modules';
 import Header from './Header';
+import Sidebar from './Sidebar';
 import AlertPage from './AlertPage';
 import MapPage from './MapPage';
 import styles from './App.scss';
@@ -14,18 +15,20 @@ class App extends Component {
   }
   state = {
     pageName: this.props.pageName,
+    showSidebar: false,
   };
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextState.pageName !== this.state.pageName;
-  }
   tabClickHandler = (pageName) => {
     this.setState({ pageName });
+  }
+  toggleSidebar = () => {
+    this.setState({ showSidebar: !this.state.showSidebar });
   }
   render() {
     const { pageName } = this.state;
     return (
       <div styleName="app">
-        <Header onTabClick={this.tabClickHandler} />
+        <Header onLeftIconButtonTouchTap={this.toggleSidebar} />
+        <Sidebar show={this.state.showSidebar} toggleSidebar={this.toggleSidebar} />
         { pageName === 'alert-page' ? <AlertPage /> : null }
         { pageName === 'map-page' ? <MapPage /> : null }
       </div>
