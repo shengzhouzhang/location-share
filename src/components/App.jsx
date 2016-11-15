@@ -1,36 +1,44 @@
+import _ from 'lodash';
 import React, { Component, PropTypes } from 'react';
 import withStyles from 'react-css-modules';
+import IconEvent from 'material-ui/svg-icons/notification/event-available';
+import IconMap from 'material-ui/svg-icons/maps/map';
 import Header from './Header';
-import Sidebar from './Sidebar';
 import AlertPage from './AlertPage';
 import MapPage from './MapPage';
 import styles from './App.scss';
 
+const PAGES = [
+  { index: 0, name: 'Events', icon: <IconEvent /> },
+  { index: 1, name: 'Map', icon: <IconMap /> },
+  { index: 2, name: 'Account', icon: <IconEvent /> },
+];
+
 class App extends Component {
   static propTypes = {
-    pageName: PropTypes.string,
+    pageIndex: PropTypes.number,
   }
   static defaultProps = {
-    pageName: 'alert-page',
+    pageIndex: 0,
   }
   state = {
-    pageName: this.props.pageName,
-    showSidebar: false,
-  };
-  tabClickHandler = (pageName) => {
-    this.setState({ pageName });
+    page: PAGES[this.props.pageIndex],
   }
-  toggleSidebar = () => {
-    this.setState({ showSidebar: !this.state.showSidebar });
+  tabChangeHandler = (tabIndex) => {
+    this.setState({ page: _.find(PAGES, page => page.index === tabIndex) });
   }
   render() {
-    const { pageName } = this.state;
+    const { page } = this.state;
     return (
       <div styleName="app">
-        <Header onLeftIconButtonTouchTap={this.toggleSidebar} />
-        <Sidebar show={this.state.showSidebar} toggleSidebar={this.toggleSidebar} />
-        { pageName === 'alert-page' ? <AlertPage /> : null }
-        { pageName === 'map-page' ? <MapPage /> : null }
+        <Header
+          tabIndex={page.index}
+          title={page.name}
+          icon={page.icon}
+          onTabChange={this.tabChangeHandler}
+        />
+        { page.index === 0 ? <AlertPage /> : null }
+        { page.index === 1 ? <MapPage /> : null }
       </div>
     );
   }

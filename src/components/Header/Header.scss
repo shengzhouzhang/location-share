@@ -3,3 +3,27 @@
   background-color: #fff;
   z-index: 10;
 }
+
+.header__app-bar {
+  padding: 0 5px !important;
+  height: 46px !important;
+}
+
+.header__app-bar button {
+  margin: 0 !important;
+  padding: 11px !important;
+  height: 46px !important;
+  width: 46px !important;
+}
+
+.header__app-bar h1 {
+  margin-left: 8px !important;
+  font-size: 15px !important;
+  height: 46px !important;
+  line-height: 46px !important;
+}
+
+.header__app-bar button > div {
+  height: 24px;
+  width: 24px;
+}
