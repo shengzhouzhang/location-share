@@ -1,28 +1,11 @@
 import React from 'react';
-import { List, ListItem } from 'material-ui/List';
-import Divider from 'material-ui/Divider';
-import { Header, Setting } from './Alert';
-
-const ListStyle = {
-  backgroundColor: '#fff',
-  borderTop: '1px solid rgb(224, 224, 224)',
-  borderBottom: '1px solid rgb(224, 224, 224)',
-};
+import Alert from './Alert';
 
 export default function AlertList() {
   return (
     <div styleName="alert-list">
-      <List style={ListStyle}>
-        <ListItem
-          primaryText={<Header />}
-          secondaryText={<Setting />}
-        />
-        <Divider />
-        <ListItem
-          primaryText={<Header />}
-          secondaryText={<Setting />}
-        />
-      </List>
+      <Alert location="Hopper Crossing" receiver="user-2" />
+      <Alert location="Flinders street station" receiver="user-1" />
     </div>
   );
 }
